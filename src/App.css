@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.footer{
+ margin-top: 160px;
+
+}
+.fieldset-legend{
+  display: flex;
+  color: red;
+  align-items: center;
+  margin-left: 45%;
+}
+
+.fieldset w-xs bg-base-200 border border-base-300 p-4 rounded-box{
+  margin-left: 45%;
+}
+
+.DropBox{
+  margin-top: 10px;
+  display: grid;
+  justify-content: left;
+  align-items: left;
+}
+
+.Login{
+  margin-top: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.file-inputt{
+  margin-top: 10px;
+
+  display: grid;
+  justify-content: left;
+  align-items: left;
+}
