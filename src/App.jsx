@@ -24,7 +24,7 @@ function App() {
       <Navbar />
 
       {/* Scrollable content section */}
-      <main className="main-content">
+      <main className="main-content bg-base-300">
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
