@@ -5,7 +5,7 @@ import "prismjs/components/prism-jsx";
 import "prismjs/components/prism-markdown";
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams } from "react-router-dom";
 import { projectService } from "../services/apis";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
@@ -17,33 +17,36 @@ const Chunks = () => {
   const { projectId, fileId, chunkId } = useParams();
   const location = useLocation();
   const { chunk } = location.state || {};
-  
+
   useEffect(() => {
-    projectService.getFileChunkDoc(projectId, fileId, chunkId)
-      .then(res => {
+    projectService
+      .getFileChunkDoc(projectId, fileId, chunkId)
+      .then((res) => {
         setDocumentation(res);
         Prism.highlightAll();
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e);
       });
 
-    projectService.getFileChunkCode(projectId, fileId, chunkId)
-      .then(res => {
+    projectService
+      .getFileChunkCode(projectId, fileId, chunkId)
+      .then((res) => {
         setCode(res.chunk_content);
         Prism.highlightAll();
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e);
       });
   }, [projectId, fileId, chunkId]);
 
   const regenerateHandle = async () => {
-    projectService.getFileChunkDocUpdate(projectId, fileId, chunk, userInput)
-      .then(e => {
+    projectService
+      .getFileChunkDocUpdate(projectId, fileId, chunk, userInput)
+      .then(() => {
         alert("Document updated successfully");
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e);
         alert("Error in updation");
       });
@@ -54,7 +57,11 @@ const Chunks = () => {
   }, [code]);
 
   return (
+<<<<<<< HEAD
     <div className="bg-base-100 text-gray-900 p-6">
+=======
+    <div className="flex flex-col flex-grow bg-base-100 text-gray-900 p-6">
+>>>>>>> b917e03 (Final CSS)
       {/* File Info Section */}
       <div className="flex items-center bg-gray-200 p-3 rounded-lg shadow mt-4">
         <span className="text-lg font-semibold">File:</span>
@@ -79,7 +86,9 @@ const Chunks = () => {
           <div
             className="text-gray-700 markdown-content"
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(marked(documentation || "No documentation available."))
+              __html: DOMPurify.sanitize(
+                marked(documentation || "No documentation available.")
+              ),
             }}
           />
         </div>
@@ -98,7 +107,9 @@ const Chunks = () => {
 
       {/* Regenerate Button */}
       <div className="flex justify-center mt-6">
-        <button className="btn btn-primary px-6" onClick={regenerateHandle}>🔄 Regenerate</button>
+        <button className="btn btn-primary px-6" onClick={regenerateHandle}>
+          🔄 Regenerate
+        </button>
       </div>
     </div>
   );

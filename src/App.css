@@ -1,53 +1,64 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+html, body {
+  height: 100%; /* Ensure the page takes the full height of the viewport */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
 
-.footer{
-  margin-top: auto;
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the root container spans the full height */
+}
+
+.main-content {
+  flex: 1; /* Allow the main content to grow and take up available space */
+}
+
+.footer {
+  margin-top: auto; /* Push the footer to the bottom */
   width: 100%;
   position: relative;
-  bottom: 0;
- /* margin-top: 160px; */
- padding-top: 80px;
-
+  padding-top: 80px;
 }
-.fieldset-legend{
+
+.fieldset-legend {
   display: flex;
   color: red;
   align-items: center;
   margin-left: 45%;
 }
 
-.fieldset w-xs bg-base-200 border border-base-300 p-4 rounded-box{
+.fieldset w-xs bg-base-200 border border-base-300 p-4 rounded-box {
   margin-left: 45%;
 }
 
-.DropBox{
+.DropBox {
   margin-top: 10px;
   display: grid;
   justify-content: left;
   align-items: left;
 }
 
-.Login{
+.Login {
   margin-top: 100px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
-.file-inputt{
-  margin-top: 10px;
 
+.file-inputt {
+  margin-top: 10px;
   display: grid;
   justify-content: left;
   align-items: left;
 }
 
-
 .markdown-content p {
-  line-height: 1.6; 
+  line-height: 1.6;
 }
 
 .markdown-content h1,
@@ -56,18 +67,18 @@
 .markdown-content h4,
 .markdown-content h5,
 .markdown-content h6 {
-  margin-top: 1.5em; 
+  margin-top: 1.5em;
 }
 
 .markdown-content ul,
 .markdown-content ol {
-  margin-left: 1.5em; 
+  margin-left: 1.5em;
 }
 
 .markdown-content blockquote {
-  margin-left: 1.5em; 
-  padding-left: 1em; 
-  border-left: 4px solid #ccc; 
+  margin-left: 1.5em;
+  padding-left: 1em;
+  border-left: 4px solid #ccc;
 }
 
 .hljs {
@@ -78,6 +89,6 @@
   color: #ccc;
 }
 
-.hljs-string{
+.hljs-string {
   color: #d1dae3;
-} 
+}

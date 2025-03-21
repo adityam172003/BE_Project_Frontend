@@ -9,10 +9,8 @@ import { projectService } from "../services/apis";
 import { useParams, useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 
-
 import { marked } from "marked";
 import DOMPurify from "dompurify";
-
 
 Modal.setAppElement("#root");
 
@@ -135,12 +133,11 @@ const ViewDoc = () => {
   };
 
   const handleChunkClick = (chunk) => {
-
     navigate(`/chunks/${projectId}/${selectedFile.id}/${chunk.id}`, { state: { chunk } });
   };
 
   return (
-    <div className="flex h-screen">
+    <div className={`flex h-screen ${isModalOpen ? "blur-sm" : ""}`}>
       <FileExplorer
         files={files}
         onSelect={(file) => {
@@ -161,15 +158,15 @@ const ViewDoc = () => {
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeChunkModal}
-        className="bg-white p-6 rounded-lg w-full md:w-1/3 shadow-lg mx-auto mt-20 overflow-auto max-h-full"
-        overlayClassName="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+        className="bg-white p-6 rounded-lg w-full md:w-1/3 shadow-lg mx-auto mt-20 overflow-auto max-h-full z-50"
+        overlayClassName="fixed inset-0 backdrop-blur-sm bg-opacity-0 flex justify-center items-center"
       >
-        <h3 className="text-lg font-bold mb-4">Chunk Files</h3>
-        <ul className="list-disc pl-5">
+        <h3 className="text-lg font-bold mb-4 text-gray-900">Chunk Files</h3>
+        <ul className="list-disc pl-5 text-gray-800">
           {chunkFiles?.map((chunk, index) => (
             <li
               key={index}
-              className="p-2 border-b border-gray-300 text-gray-800 cursor-pointer"
+              className="p-2 border-b border-gray-300 cursor-pointer hover:bg-gray-100"
               onClick={() => handleChunkClick(chunk)}
             >
               {chunk.id}
