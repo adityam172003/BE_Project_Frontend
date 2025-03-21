@@ -57,11 +57,7 @@ const Chunks = () => {
   }, [code]);
 
   return (
-<<<<<<< HEAD
     <div className="bg-base-100 text-gray-900 p-6">
-=======
-    <div className="flex flex-col flex-grow bg-base-100 text-gray-900 p-6">
->>>>>>> b917e03 (Final CSS)
       {/* File Info Section */}
       <div className="flex items-center bg-gray-200 p-3 rounded-lg shadow mt-4">
         <span className="text-lg font-semibold">File:</span>

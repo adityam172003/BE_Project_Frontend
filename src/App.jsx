@@ -20,7 +20,7 @@ function App() {
     const location = useLocation();
 
   return (
-    <div className="app-container">
+    <div className="app-container layout">
       <Navbar />
 
       {/* Scrollable content section */}
