@@ -66,7 +66,7 @@ const FileViewer = ({ projectId, selectedFile, isViewingCode, toggleView, openCh
     <div className="flex flex-col h-full p-4 w-full overflow-x-auto">
       <div className="bg-gray-900 p-3 rounded-lg shadow-md sticky top-0 z-10">
         <h2 className="text-lg font-semibold text-blue-400">
-          📄 {file ? file.filename : "Select a file"}
+          📄 {file ? selectedFile.filename : "Select a file"}
         </h2>
       </div>
       <div className="flex-grow bg-gray-800 p-4 rounded-lg overflow-auto border border-gray-700 max-w-full">

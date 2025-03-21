@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { useLogin } from "../hooks/userLogin";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-
+  const nevigate  = useNavigate();
 
   const [name, setname] = useState("");
 
@@ -14,9 +15,13 @@ export default function Login() {
   const handleSubmit = async (e) => {
       e.preventDefault();
       
-      console.log(name , password);
-      await login(name, password);
-      console.log("Login successful");
+     try {
+        const response = await login(name, password);
+        nevigate("/home");
+      }
+      catch (error) {
+        console.error("Error logging in:", error);
+      }
       
       
   };

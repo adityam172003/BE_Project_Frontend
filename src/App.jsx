@@ -17,10 +17,11 @@ function App() {
    
    <>
     <Navbar />
-    <Login/>
+    
     
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Login/>}></Route>
+      <Route path="/home" element={<Home />} />
       <Route path="/viewdoc/:projectId" element={<ViewDoc />} />
       <Route path="/chunks/:projectId/:fileId/:chunkId" element={<Chunks />} />
 
