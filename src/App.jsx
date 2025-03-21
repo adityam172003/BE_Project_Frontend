@@ -31,7 +31,7 @@ function App() {
           <Route path="/about/" element={<About />} />
           <Route path="/viewdoc/:projectId" element={<ViewDoc />} />
           <Route path="/chunks/:projectId/:fileId/:chunkId" element={<Chunks />} />
-          <Route path="/dropbox" element={<Dropbox />} />
+          <Route path="/new-project" element={<Dropbox />} />
         </Routes>
       </main>
 

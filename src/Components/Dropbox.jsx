@@ -42,26 +42,6 @@ export default function Dropbox() {
     }
   };
 
-  //   const zipAndDownload = async () => {
-  //     if (!folderHandle) {
-  //       alert("Please select a folder first");
-  //       return;
-  //     }
-  //     const zip = new JSZip();
-  //     await readAndZipFolder(folderHandle, zip);
-  //     const content = await zip.generateAsync({ type: "blob" });
-  //     const url = URL.createObjectURL(content);
-  //     const a = document.createElement("a");
-  //     a.href = url;
-  //     a.download = `${folderHandle.name}.zip`;
-
-  //     console.log(a)
-  // document.body.appendChild(a);
-  // a.click();
-  // document.body.removeChild(a);
-  //   };
-
-
 
   const zipAndUpload = async () => {
     console.log("clicked")
@@ -105,22 +85,22 @@ export default function Dropbox() {
 
   return (
     <div>
-      <div className="py-16 bg-base-300 flex justify-center items-center">
+      <div className="flex justify-center items-center mt-15">
         <div className="card w-full sm:w-3/4 lg:w-1/2 bg-base-100 shadow-xl">
           <div className="card-body">
-            <h2 className="card-title text-2xl mb-1">Upload Your Files</h2>
-            <p className="text-xs text-gray-500 mb-4">
-              Files should be of format .mp4, .avi, .mov or .mkv
+            <h2 className="card-title text-2xl mb-1 ml-1">Create New Project</h2>
+            <p className="text-xs text-gray-500 mb-2 ml-1">
+              Files should be of format .py, .java or .cpp
             </p>
 
             {/* Title Input */}
-            <div className="form-control mb-4">
-              <label className="label">
-                <span className="label-text">Document Title</span>
+            <div className="form-control mb-3">
+              <label className="ml-1 mb-1">
+                <span className="text-lg font-semibold">Title</span>
               </label>
               <input
                 type="text"
-                placeholder="Enter document title"
+                placeholder="Enter project title"
                 className="input input-bordered w-full rounded-lg"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
@@ -128,14 +108,14 @@ export default function Dropbox() {
             </div>
 
             {/* Description TextArea with Smooth Border */}
-            <div className="form-control mb-4">
-              <label className="label">
-                <span className="label-text">Description</span>
+            <div className="form-control mb-3">
+              <label className="ml-1 mb-1">
+                <span className="text-lg font-semibold">Description</span>
               </label>
               <textarea
-                className="textarea textarea-bordered textarea-primary w-full rounded-lg"
-                placeholder="Enter description of files"
-                rows="6"
+                className="textarea textarea-bordered w-full rounded-lg"
+                placeholder="Enter description of project"
+                rows="4"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               ></textarea>

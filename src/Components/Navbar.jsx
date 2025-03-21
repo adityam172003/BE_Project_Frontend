@@ -63,7 +63,7 @@ const Navbar = () => {
 
                             <li>
                                 <Link
-                                    to="/dropbox"
+                                    to="/new-project"
                                     className="flex items-center gap-2 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300"
                                 >
                                     <span
@@ -73,7 +73,7 @@ const Navbar = () => {
                                                 : "text-gray-100 text-lg font-normal"
                                         }
                                     >
-                                        📤 Create Project
+                                        📤 New Project
                                     </span>
                                 </Link>
                             </li>
@@ -83,13 +83,13 @@ const Navbar = () => {
 
                 <div className="navbar-center">
                     <a
-                        className={`btn btn-ghost text-xl ${
+                        className={`btn btn-ghost text-2xl ${
                             theme === "light"
                                 ? "text-gray-900"
                                 : "text-gray-100"
                         }`}
                     >
-                        Documentation Generator
+                        DocGen - AI Powered Documentation Generation
                     </a>
                 </div>
 
