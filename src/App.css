@@ -3,10 +3,15 @@
 
 
 .footer{
+<<<<<<< HEAD
   margin-top: auto;
   width: 100%;
   position: relative;
   bottom: 0;
+=======
+ /* margin-top: 160px; */
+ padding-top: 80px;
+>>>>>>> 4232d7136818957867ac0781318c4c3499767332
 
 }
 .fieldset-legend{
