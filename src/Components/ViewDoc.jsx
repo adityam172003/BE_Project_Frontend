@@ -66,7 +66,7 @@ const FileViewer = ({ projectId, selectedFile, isViewingCode, toggleView, openCh
 
   return (
     <div className="flex flex-col h-full px-4 w-full overflow-x-auto">
-      <div className="bg-gray-900 p-3 shadow-md sticky top-0 z-10">
+      <div className="bg-gray-900 p-3 shadow-md sticky top-0 ">
         <h2 className="text-lg font-semibold text-blue-400">
           📄 {file ? selectedFile.filename : "Select a file"}
         </h2>
@@ -86,7 +86,7 @@ const FileViewer = ({ projectId, selectedFile, isViewingCode, toggleView, openCh
         </pre>
       </div>
       {file && (
-        <div className="w-full bg-gray-900 p-4 flex justify-between border-t border-gray-700 sticky bottom-0 z-10">
+        <div className="w-full bg-gray-900 p-4 flex justify-between border-t border-gray-700 sticky bottom-0">
           <button className="btn btn-primary">Update</button>
           <button className="btn btn-secondary" onClick={openChunkModal}>Chunks</button>
           <button className="btn btn-accent" onClick={toggleView}>
