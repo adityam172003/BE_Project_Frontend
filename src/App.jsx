@@ -10,38 +10,33 @@ import Footer from './Components/Footer'
 import Dropbox from './Components/Dropbox'
 import ViewDoc from './Components/ViewDoc'
 import Chunks from './Components/Chunks'
+import { useLocation } from 'react-router-dom';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
+  
+    const location = useLocation();
+
   return (
-   
-   <>
-    <Navbar />
-    
-    
-    <Routes>
-      <Route path="/" element={<Login/>}></Route>
-      <Route path="/home" element={<Home />} />
-      <Route path="/about/" element={<About/>}/>
-      <Route path="/viewdoc/:projectId" element={<ViewDoc />} />
-      <Route path="/chunks/:projectId/:fileId/:chunkId" element={<Chunks />} />
-      <Route path="/dropbox" element={<Dropbox/>}/>
-    </Routes>
-    <Footer />
-  </>
-   
-     
-    //   
-    //    <Home /> 
-     
-    //   {/* <Navbar /> */}
-    //     <Dropbox />
-    //      
-    //     <ViewDoc/>
-     
-    //   <Footer />
-    // </>
+    <div className="app-container">
+      <Navbar />
+
+      {/* Scrollable content section */}
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about/" element={<About />} />
+          <Route path="/viewdoc/:projectId" element={<ViewDoc />} />
+          <Route path="/chunks/:projectId/:fileId/:chunkId" element={<Chunks />} />
+          <Route path="/dropbox" element={<Dropbox />} />
+        </Routes>
+      </main>
+
+      <Footer />
+    </div>
   );
 }
 

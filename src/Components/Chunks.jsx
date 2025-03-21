@@ -17,7 +17,7 @@ const Chunks = () => {
   const { projectId, fileId, chunkId } = useParams();
   const location = useLocation();
   const { chunk } = location.state || {};
-
+  
   useEffect(() => {
     projectService.getFileChunkDoc(projectId, fileId, chunkId)
       .then(res => {

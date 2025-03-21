@@ -18,7 +18,7 @@ Modal.setAppElement("#root");
 
 const FileExplorer = ({ files, onSelect }) => {
   return (
-    <div className="h-full bg-gray-900 text-white p-4 overflow-auto min-w-3xs border-r border-gray-700">
+    <div className="h-full bg-gray-900 text-white p-4 w-64 flex-shrink-0 border-r border-gray-700">
       <h2 className="text-lg font-semibold mb-4">📂 File Explorer</h2>
       <ul>
         {files?.map((file, index) => (
@@ -27,7 +27,9 @@ const FileExplorer = ({ files, onSelect }) => {
             className="cursor-pointer p-2 hover:bg-gray-700 rounded border-b border-gray-600"
             onClick={() => onSelect(file)}
             draggable
-            onDragStart={(e) => e.dataTransfer.setData("text/plain", file.filename)}
+            onDragStart={(e) =>
+              e.dataTransfer.setData("text/plain", file.filename)
+            }
           >
             {file.filename}
           </li>

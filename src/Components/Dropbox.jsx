@@ -15,12 +15,20 @@ export default function Dropbox() {
 
   const handleFolderSelect = async () => {
     try {
+      console.log("Folder select clicked");
       const handle = await window.showDirectoryPicker();
+      console.log("Selected folder handle:", handle);
       setFolderHandle(handle);
     } catch (error) {
       console.error("Error selecting folder:", error);
+      alert(
+        "Error selecting folder. Ensure you're using Chrome and running on a secure context."
+      );
     }
   };
+
+
+  
   const readAndZipFolder = async (folderHandle, zip) => {
     for await (const entry of folderHandle.values()) {
       if (entry.kind === "file") {
@@ -185,7 +193,7 @@ export default function Dropbox() {
 
 <div className="p-4 ">
   <div className="flex justify-around">
-  <button onClick={handleFolderSelect} className={folderHandle ? "w-full px-4 py-2 mr-2 bg-red-300 text-black rounded cursor-not-allowed" : "w-full px-4 py-2 mr-2 bg-blue-500 text-black rounded cursor-pointer"} disabled={folderHandle}>
+  <button onClick={handleFolderSelect} className="w-full px-4 py-2 mr-2 bg-blue-500 text-black rounded cursor-pointer">
     Select Project Folder
   </button>
 
