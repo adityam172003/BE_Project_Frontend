@@ -16,7 +16,7 @@ export default function Home() {
     e.preventDefault();
     try {
       await login(name, password);
-      navigate("/dashboard"); // Redirect to dashboard/home
+      navigate("/home"); // Redirect to dashboard/home
     } catch (error) {
       console.error("Error logging in:", error);
     }

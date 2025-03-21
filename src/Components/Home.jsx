@@ -8,6 +8,7 @@ export default function Home() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        setTimeout(() => {
         const fetchProjects = async () => {
             try {
                 const response = await userService.getUserProjects();
@@ -18,6 +19,7 @@ export default function Home() {
         };
 
         fetchProjects();
+    }, 1200);
     }, []);
 
     const handleViewClick = (projectId) => {
