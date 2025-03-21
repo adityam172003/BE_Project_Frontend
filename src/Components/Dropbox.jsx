@@ -185,7 +185,7 @@ export default function Dropbox() {
 
 <div className="p-4 ">
   <div className="flex justify-around">
-  <button onClick={handleFolderSelect} className={folderHandle ? "w-full px-4 py-2 mr-2 bg-red-300 text-black rounded cursor-not-allowed" : "w-full px-4 py-2 mr-2 bg-blue-500 text-black rounded cursor-pointer"} disabled={!folderHandle}>
+  <button onClick={handleFolderSelect} className={folderHandle ? "w-full px-4 py-2 mr-2 bg-red-300 text-black rounded cursor-not-allowed" : "w-full px-4 py-2 mr-2 bg-blue-500 text-black rounded cursor-pointer"} disabled={folderHandle}>
     Select Project Folder
   </button>
 

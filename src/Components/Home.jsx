@@ -25,7 +25,7 @@ export default function Home() {
 
 
   return (
-    <div className="file-inputt">
+    <div className="grid grid-cols-3 gap-4">
     {projects?.map((project) => (
       <div key={project.id} className="card bg-base-100 w-96 shadow-sm flex justify-center mt-8">
         <div className="card-body">

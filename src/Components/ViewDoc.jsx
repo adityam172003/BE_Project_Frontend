@@ -18,7 +18,7 @@ Modal.setAppElement("#root");
 
 const FileExplorer = ({ files, onSelect }) => {
   return (
-    <div className="h-full bg-gray-900 text-white p-4 overflow-auto w-64 border-r border-gray-700">
+    <div className="h-full bg-gray-900 text-white p-4 overflow-auto min-w-3xs border-r border-gray-700">
       <h2 className="text-lg font-semibold mb-4">📂 File Explorer</h2>
       <ul>
         {files?.map((file, index) => (
@@ -63,13 +63,13 @@ const FileViewer = ({ projectId, selectedFile, isViewingCode, toggleView, openCh
   }, [selectedFile, projectId, isViewingCode]);
 
   return (
-    <div className="flex flex-col h-full p-4 w-full overflow-x-auto">
-      <div className="bg-gray-900 p-3 rounded-lg shadow-md sticky top-0 z-10">
+    <div className="flex flex-col h-full px-4 w-full overflow-x-auto">
+      <div className="bg-gray-900 p-3 shadow-md sticky top-0 z-10">
         <h2 className="text-lg font-semibold text-blue-400">
           📄 {file ? selectedFile.filename : "Select a file"}
         </h2>
       </div>
-      <div className="flex-grow bg-gray-800 p-4 rounded-lg overflow-auto border border-gray-700 max-w-full">
+      <div className="flex-grow bg-gray-800 p-4 overflow-auto border border-gray-700 max-w-full">
         <pre className="p-4 rounded-md overflow-auto border border-gray-600 text-white line-numbers">
           <code
             className={isViewingCode ? "language-jsx" : "language-markdown"}
