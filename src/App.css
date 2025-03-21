@@ -1,8 +1,12 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+
 .footer{
- margin-top: 160px;
+  margin-top: auto;
+  width: 100%;
+  position: relative;
+  bottom: 0;
 
 }
 .fieldset-legend{

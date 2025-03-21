@@ -1,20 +1,22 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 const Navbar = () => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-
+  //const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const { theme, toggleTheme } = useContext(ThemeContext);
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+  // const toggleTheme = () => {
+  //   setTheme(theme === "light" ? "dark" : "light");
+  // };
 
   return (
     <div>
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar bg-base-100 shadow-2xl">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -31,20 +33,28 @@ const Navbar = () => {
 
             <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
               <li>
-              <Link to="/home"><a>Homepage</a></Link>
+                <Link to="/home">
+                  <span className={theme === "light" ? "text-gray-900" : "text-gray-100"}>Homepage</span>
+                </Link>
               </li>
               <li>
-              <Link to="/about"><a>About</a></Link>
+                <Link to="/about">
+                  <span className={theme === "light" ? "text-gray-900" : "text-gray-100"}>About</span>
+                </Link>
               </li>
               <li>
-                <Link to="/dropbox"><a>Upload</a></Link>
+                <Link to="/dropbox">
+                  <span className={theme === "light" ? "text-gray-900" : "text-gray-100"}>Upload</span>
+                </Link>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="navbar-center">
-          <a className="btn btn-ghost text-xl">Documentation Generator</a>
+          <a className={`btn btn-ghost text-xl ${theme === "light" ? "text-gray-900" : "text-gray-100"}`}>
+            Documentation Generator
+          </a>
         </div>
 
         <div className="navbar-end flex items-center">
@@ -64,7 +74,6 @@ const Navbar = () => {
           <div className="dropdown">
             <div tabIndex={0} role="button" className="m-1 focus:outline-none flex items-center justify-center">
               <div className="flex items-center justify-center">
-                {/* Profile Icon */}
                 <div className="w-9 h-9 rounded-full bg-neutral flex items-center justify-center p-1">
                   <svg fill="#fff" width="25px" height="25px" viewBox="0 0 128 128">
                     <g>
@@ -77,7 +86,7 @@ const Navbar = () => {
             </div>
             <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-auto shadow-sm">
               <li className="log-out">
-                <a>Log Out</a>
+                <a href="/" className={theme === "light" ? "text-gray-900" : "text-gray-100"}>Log Out</a>
               </li>
             </ul>
           </div>

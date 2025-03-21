@@ -10,36 +10,37 @@ import Footer from './Components/Footer'
 import Dropbox from './Components/Dropbox'
 import ViewDoc from './Components/ViewDoc'
 import Chunks from './Components/Chunks'
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
   return (
-   
-   <>
-    <Navbar />
-    
-    
-    <Routes>
-      <Route path="/" element={<Login/>}></Route>
-      <Route path="/home" element={<Home />} />
-      <Route path="/about/" element={<About/>}/>
-      <Route path="/viewdoc/:projectId" element={<ViewDoc />} />
-      <Route path="/chunks/:projectId/:fileId/:chunkId" element={<Chunks />} />
-      <Route path="/dropbox" element={<Dropbox/>}/>
-    </Routes>
-    <Footer />
-  </>
-   
-     
-    //   
-    //    <Home /> 
-     
+    <>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Login />}></Route>
+        <Route path="/home" element={<Home />} />
+        <Route path="/about/" element={<About />} />
+        <Route path="/viewdoc/:projectId" element={<ViewDoc />} />
+        <Route
+          path="/chunks/:projectId/:fileId/:chunkId"
+          element={<Chunks />}
+        />
+        <Route path="/dropbox" element={<Dropbox />} />
+      </Routes>
+      <Footer />
+    </>
+
+    //
+    //    <Home />
+
     //   {/* <Navbar /> */}
     //     <Dropbox />
-    //      
+    //
     //     <ViewDoc/>
-     
+
     //   <Footer />
     // </>
   );

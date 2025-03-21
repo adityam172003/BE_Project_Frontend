@@ -41,7 +41,7 @@ const userService = {
         return axiosAuthInstance.get("/projects/")
         .then(res => res.data)
         .catch(err => {
-            console.clear()
+            console.log(err)
             throw err.response
             console.clear()
         })
