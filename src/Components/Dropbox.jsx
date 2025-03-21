@@ -1,10 +1,93 @@
+import InputFiles from "./InputFiles";
 import Navbar from "./Navbar";
 import React, { useState } from "react";
+import JSZip from "jszip";
+import { projectService } from "../services/apis";
 
 export default function Dropbox() {
   const [files, setFiles] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
+
+
+  const [folderHandle, setFolderHandle] = useState(null);
+
+  const handleFolderSelect = async () => {
+    try {
+      const handle = await window.showDirectoryPicker();
+      setFolderHandle(handle);
+    } catch (error) {
+      console.error("Error selecting folder:", error);
+    }
+  };
+  const readAndZipFolder = async (folderHandle, zip) => {
+    for await (const entry of folderHandle.values()) {
+      if (entry.kind === "file") {
+        const file = await entry.getFile();
+        const content = await file.arrayBuffer();
+        zip.file(entry.name, content);
+      } else if (entry.kind === "directory") {
+        const subZip = zip.folder(entry.name);
+        await readAndZipFolder(entry, subZip);
+      }
+    }
+  };
+
+  //   const zipAndDownload = async () => {
+  //     if (!folderHandle) {
+  //       alert("Please select a folder first");
+  //       return;
+  //     }
+  //     const zip = new JSZip();
+  //     await readAndZipFolder(folderHandle, zip);
+  //     const content = await zip.generateAsync({ type: "blob" });
+  //     const url = URL.createObjectURL(content);
+  //     const a = document.createElement("a");
+  //     a.href = url;
+  //     a.download = `${folderHandle.name}.zip`;
+
+  //     console.log(a)
+  // document.body.appendChild(a);
+  // a.click();
+  // document.body.removeChild(a);
+  //   };
+
+
+
+  const zipAndUpload = async () => {
+    console.log("clicked")
+    if (!folderHandle) {
+      alert("Please select a folder first");
+      return;
+    }
+    const zip = new JSZip();
+    await readAndZipFolder(folderHandle, zip);
+    const content = await zip.generateAsync({ type: "blob" });
+
+    const formData = new FormData();
+    formData.append("zip_file", content);
+    formData.append("title", title);
+    formData.append("description", description);
+
+
+
+    //console.log(content)
+    console.log(formData , "in upload")
+
+   
+
+    try {
+
+      await projectService.createProject(formData);
+      alert("ZIP uploaded successfully");
+
+    } catch (error) {
+      console.error("Error uploading ZIP:", error);
+      alert("Error uploading ZIP");
+    }
+  };
+
 
   const handleFileChange = (e) => {
     // Convert the FileList into an Array
@@ -14,7 +97,7 @@ export default function Dropbox() {
 
   return (
     <div>
-      <Navbar />
+
       <div className="h-screen bg-base-300 flex justify-center items-center">
         <div className="card w-full sm:w-3/4 lg:w-1/2 bg-base-100 shadow-xl">
           <div className="card-body">
@@ -99,7 +182,23 @@ export default function Dropbox() {
                 </ul>
               </div>
             )}
+           <div>
 
+<div className="p-4">
+  <button onClick={handleFolderSelect} className="px-4 py-2 bg-blue-500 text-black rounded">
+    Select Project Folder
+  </button>
+  <button onClick={zipAndUpload} className="mt-4 px-4 py-2 bg-green-500 text-black rounded">
+    Upload zip ZIP
+  </button>
+
+  {folderHandle && <p className="mt-2">Selected: {folderHandle.name}</p>}
+
+</div>
+
+
+
+</div>
             {/* Optional Submit Button */}
             <div className="mt-6 flex justify-end">
               <button className="btn btn-primary">Submit</button>
@@ -107,6 +206,10 @@ export default function Dropbox() {
           </div>
         </div>
       </div>
+
+
+
+      
     </div>
   );
 }

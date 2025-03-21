@@ -38,3 +38,44 @@
   justify-content: left;
   align-items: left;
 }
+
+
+
+
+
+
+.markdown-content p {
+  line-height: 1.6; /* Adjust the line height to increase space between lines */
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin-top: 1.5em; /* Add space above headings */
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-left: 1.5em; /* Add space to the left of lists */
+}
+
+.markdown-content blockquote {
+  margin-left: 1.5em; /* Add space to the left of blockquotes */
+  padding-left: 1em; /* Add padding to the left of blockquotes */
+  border-left: 4px solid #ccc; /* Add a left border to blockquotes */
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #2d2d2d;
+  color: #ccc;
+}
+
+.hljs-string{
+  color: #d1dae3;
+}
