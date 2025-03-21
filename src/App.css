@@ -2,7 +2,8 @@
 @plugin "daisyui";
 
 .footer{
- margin-top: 160px;
+ /* margin-top: 160px; */
+ padding-top: 80px;
 
 }
 .fieldset-legend{
