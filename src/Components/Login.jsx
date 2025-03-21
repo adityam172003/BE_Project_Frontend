@@ -24,14 +24,14 @@ export default function Home() {
 
   return (
     <div
-      className={`flex flex-col lg:flex-row items-center justify-between min-h-screen ${
-        theme === "light" ? "bg-white text-black" : "bg-gray-900 text-white"
+      className={`flex flex-col lg:flex-row items-center justify-between bg-base-300 my-30 ${
+        theme === "light" ? "bg-base-300 text-black" : "bg-gray-900 text-white"
       }`}
     >
       {/* Left: Login Form */}
-      <div className="lg:w-1/2 w-full flex justify-center">
-        <div className="w-full max-w-sm bg-white-900 shadow-2xl rounded-2xl p-8 border border-gray-700">
-          <h2 className={`text-3xl font-bold ${theme === "light" ? 'text-gray-900':'text-gray-100'} text-center mb-6`}>🔐 Log in</h2>
+      <div className="lg:w-1/2 w-full flex justify-center bg-base-300">
+        <div className="w-full max-w-sm bg-white-900 shadow-2xl rounded-2xl p-8 border border-gray-700 bg-white">
+          <h2 className={`text-3xl pr-5 font-semibold ${theme === "light" ? 'text-gray-900':'text-gray-100'} text-center mb-6`}>🔐 Log in</h2>
           <form className="space-y-6" onSubmit={handleSubmit}>
             {/* Name Input */}
             <div className="form-control">
@@ -46,20 +46,6 @@ export default function Home() {
                 />
               </label>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       
             {/* Password Input */}
@@ -99,37 +85,37 @@ export default function Home() {
       </div>
 
       {/* Right: Image and Info */}
-      <div className="lg:w-1/2 w-full flex flex-col items-center text-center mt-10 lg:mt-0 px-6">
+      <div className="lg:w-1/2 w-full flex flex-col items-center text-center mt-10 lg:mt-0 px-6 bg-base-300 pr-35">
         {/* <h2 className={`text-3xl font-bold ${theme === "light" ? "bg-white text-black" : "bg-gray-900 text-white"}}`> */}
 
-        <h2
-          className={`text-3xl mt-6 font-bold ${
-            theme === "light" ? "bg-white text-black" : "bg-gray-900 text-white"
+        <h3
+          className={`text-2xl mt-0 font-bold ${
+            theme === "light" ? "bg-base-300 text-black" : "bg-gray-900 text-white"
           }`}
         >
           📄 What the Tool Does
-        </h2>
-        <p className={`text-gray-800 mt-2 ${theme === "light" ? "bg-white text-black" : "bg-gray-900 text-white"}`}>
-          Our AI-powered **Documentation Generator** simplifies code and API
+        </h3>
+        <p className={`text-gray-800 mt-2 ${theme === "light" ? "bg-base-300 text-black" : "bg-gray-900 text-white"}`}>
+          Our AI-powered Documentation Generator simplifies code
           documentation, making it easy to maintain and share project knowledge.
         </p>
 
-        <h2
-          className={`text-3xl mt-6 font-bold ${
-            theme === "light" ? "bg-white text-black" : "bg-gray-900 text-white"
+        <h3
+          className={`text-2xl mt-6 font-bold ${
+            theme === "light" ? "bg-base-300 text-black" : "bg-gray-900 text-white"
           }`}
         >
           ⚡ How It Benefits Users
-        </h2>
-        <p className={`text-gray-800 mt-2 ${theme === "light" ? "bg-white text-black" : "bg-gray-900 text-white"}`}>
+        </h3>
+        <p className={`text-gray-800 mt-2 ${theme === "light" ? "bg-base-300 text-black" : "bg-gray-900 text-white"}`}>
           Save hours of manual documentation effort, ensure consistency, and
           improve collaboration across teams.
         </p>
 
-         <h2 className={`text-3xl mt-6 font-bold ${theme === "light" ? "bg-white text-black" : "bg-gray-900 text-white"}`}>
+         <h3 className={`text-2xl mt-6 font-bold ${theme === "light" ? "bg-base-300 text-black" : "bg-gray-900 text-white"}`}>
           🚀 Get Started Quickly
-        </h2>
-        <p className={`text-gray-800 mt-2 ${theme === "light" ? "bg-white text-black" : "bg-gray-900 text-white"}`}>
+        </h3>
+        <p className={`text-gray-800 mt-2 ${theme === "light" ? "bg-base-300 text-black" : "bg-gray-900 text-white"}`}>
           Sign up now and start generating high-quality documentation with just
           a few clicks!
         </p>
