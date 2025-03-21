@@ -97,8 +97,7 @@ export default function Dropbox() {
 
   return (
     <div>
-
-      <div className="h-screen bg-base-300 flex justify-center items-center">
+      <div className="py-16 bg-base-300 flex justify-center items-center">
         <div className="card w-full sm:w-3/4 lg:w-1/2 bg-base-100 shadow-xl">
           <div className="card-body">
             <h2 className="card-title text-2xl mb-1">Upload Your Files</h2>
@@ -185,10 +184,10 @@ export default function Dropbox() {
            <div>
 
 <div className="p-4">
-  <button onClick={handleFolderSelect} className="px-4 py-2 bg-blue-500 text-black rounded">
+  <button onClick={handleFolderSelect} className="px-4 py-2 mr-2 bg-blue-500 text-black rounded">
     Select Project Folder
   </button>
-  <button onClick={zipAndUpload} className="mt-4 px-4 py-2 bg-green-500 text-black rounded">
+  <button onClick={zipAndUpload} className="mt-4 px-4 py-2 ml-2 bg-green-500 text-black rounded">
     Upload zip ZIP
   </button>
 
