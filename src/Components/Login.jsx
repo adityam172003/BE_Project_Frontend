@@ -18,6 +18,7 @@ export default function Home() {
       await login(name, password);
       navigate("/home"); // Redirect to dashboard/home
     } catch (error) {
+      alert("LOGIN ERROR - INVALID LOGIN CREDENTIALS")
       console.error("Error logging in:", error);
     }
   };
