@@ -89,7 +89,7 @@ const Navbar = () => {
                                 : "text-gray-100"
                         }`}
                     >
-                        DocGen - AI Powered Documentation Generation
+                        🤖 DocGen - AI Powered Documentation Generation ✨
                     </a>
                 </div>
 

@@ -178,7 +178,7 @@ export default function Dropbox() {
   </button>
 
   <button onClick={zipAndUpload} className={folderHandle ? "w-full px-4 py-2 ml-2 bg-green-500 text-black rounded cursor-pointer" : "w-full px-4 py-2 ml-2 bg-red-300 text-black rounded cursor-not-allowed"} disabled={!folderHandle}>
-    Upload zip ZIP
+    Upload
   </button>
   </div>
   
