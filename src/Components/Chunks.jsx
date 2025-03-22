@@ -13,6 +13,9 @@ import DOMPurify from "dompurify";
 const Chunks = () => {
     const [userInput, setUserInput] = useState("");
     const [code, setCode] = useState("");
+    const [filename, setFileName] = useState("");
+    const [chunkNumber, setchunkNumber] = useState("");
+    const [chunkType, setchunkType] = useState("");
     const [documentation, setDocumentation] = useState("");
     const { projectId, fileId, chunkId } = useParams();
     const location = useLocation();
@@ -33,6 +36,9 @@ const Chunks = () => {
             .getFileChunkCode(projectId, fileId, chunkId)
             .then((res) => {
                 setCode(res.chunk_content);
+                setFileName(res.filename)
+                setchunkNumber(res.chunk_number)
+                setchunkType(res.chunk_type)
                 Prism.highlightAll();
             })
             .catch((e) => {
@@ -60,17 +66,18 @@ const Chunks = () => {
         <div className="bg-base-100 text-gray-900 p-6">
             {/* File Info Section */}
             <div className="flex items-center bg-white p-3 rounded-lg shadow-md border border-gray-300">
-                <span className="text-lg font-semibold">File:</span>
-                <span className="ml-2">{fileId}</span>
-                <span className="ml-auto text-lg font-semibold">Chunk:</span>
-                <span className="ml-2">{chunkId}</span>
+                <span className="text-lg font-semibold">📂 File:</span>
+                <span className="ml-2">{filename}</span>
+                <span className="ml-auto text-lg font-semibold">🧩 Chunk:</span>
+                <span className="ml-2">#{chunkNumber}</span>
+                <span className="ml-1">{chunkType}</span>
             </div>
 
             {/* Code & Documentation Section */}
             <div className="grid grid-cols-2 gap-4 mt-4">
                 {/* Code Section */}
                 <div className="bg-white p-4 rounded-lg shadow-md border border-gray-300">
-                    <h2 className="text-lg font-semibold mb-2">Code</h2>
+                    <h2 className="text-lg font-semibold mb-2">📟 Code</h2>
                     <pre className="bg-gray-900 text-white p-3 rounded-md overflow-auto">
                         <code className="language-jsx">{code}</code>
                     </pre>
@@ -79,10 +86,10 @@ const Chunks = () => {
                 {/* Documentation Section */}
                 <div className="bg-white p-4 rounded-lg shadow-md border border-gray-300">
                     <h2 className="text-lg font-semibold mb-2">
-                        Documentation
+                    📄 Documentation
                     </h2>
                     <div
-                        className="text-gray-700 markdown-content"
+                        className="text-dark-100 markdown-content"
                         dangerouslySetInnerHTML={{
                             __html: DOMPurify.sanitize(
                                 marked(

@@ -221,15 +221,16 @@ const ViewDoc = () => {
                     <ul className="space-y-2 max-h-60 overflow-y-auto text-gray-800">
                         {chunkFiles.map((chunk, index) => (
                             <li
-                                key={index}
-                                className="p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-100 transition"
-                                onClick={() => handleChunkClick(chunk)}
-                            >
-                                <span className="font-medium">
-                                    Chunk {index + 1}:
-                                </span>{" "}
+                            key={index}
+                            className="p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-100 transition flex justify-between"
+                            onClick={() => handleChunkClick(chunk)}
+                        >
+                            <div>
+                                <span className="font-medium">Chunk {index + 1} :</span>{" "}
                                 {chunk.chunk_type}
-                            </li>
+                            </div>
+                            <span>{chunk.start_line}-{chunk.end_line}</span>
+                        </li>
                         ))}
                     </ul>
                 ) : (
