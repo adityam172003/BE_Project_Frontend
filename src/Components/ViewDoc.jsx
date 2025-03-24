@@ -213,7 +213,7 @@ const ViewDoc = () => {
             >
                 {/* Header */}
                 <h3 className="text-xl font-semibold mb-6 text-gray-900">
-                    📦 File Chunks
+                    📦 File Chunks ({selectedFile?.filename})
                 </h3>
 
                 {/* Chunk List */}
