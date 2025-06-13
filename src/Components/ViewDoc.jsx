@@ -87,7 +87,7 @@ const FileViewer = ({
                 <pre className="p-4 rounded-md overflow-auto border border-gray-300 text-gray-800 line-numbers">
                     <code
                         className={
-                            isViewingCode ? "language-jsx" : "language-markdown"
+                            isViewingCode ? "language-jsx" : "language-markdown markdown-content markdown-content-dark"
                         }
                         dangerouslySetInnerHTML={{
                             __html: file
