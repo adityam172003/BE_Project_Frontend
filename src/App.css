@@ -1,51 +1,63 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-.footer{
- margin-top: 160px;
-
+html, body {
+  height: 100%; /* Ensure the page takes the full height of the viewport */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
-.fieldset-legend{
+
+#root .layout{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the root container spans the full height */
+}
+
+.main-content {
+  flex: 1; /* Allow the main content to grow and take up available space */
+}
+
+.footerr {
+  margin-top: auto; /* Push the footer to the bottom */
+  width: 100%;
+  position: relative;
+}
+
+.fieldset-legend {
   display: flex;
   color: red;
   align-items: center;
   margin-left: 45%;
 }
 
-.fieldset w-xs bg-base-200 border border-base-300 p-4 rounded-box{
+.fieldset w-xs bg-base-200 border border-base-300 p-4 rounded-box {
   margin-left: 45%;
 }
 
-.DropBox{
+.DropBox {
   margin-top: 10px;
   display: grid;
   justify-content: left;
   align-items: left;
 }
 
-.Login{
+.Login {
   margin-top: 100px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
-.file-inputt{
-  margin-top: 10px;
 
+.file-inputt {
+  margin-top: 10px;
   display: grid;
   justify-content: left;
   align-items: left;
 }
 
-
-
-
-
-
 .markdown-content p {
-  line-height: 1.6; /* Adjust the line height to increase space between lines */
+  line-height: 1.6;
 }
 
 .markdown-content h1,
@@ -54,19 +66,40 @@
 .markdown-content h4,
 .markdown-content h5,
 .markdown-content h6 {
-  margin-top: 1.5em; /* Add space above headings */
+  margin-top: 0.25em;
 }
 
-.markdown-content ul,
+.markdown-content ul {
+  list-style-type: disc;
+  margin-left: 1.25rem;
+}
 .markdown-content ol {
-  margin-left: 1.5em; /* Add space to the left of lists */
+  list-style-type: decimal;
+  margin-left: 1.25rem;
 }
 
 .markdown-content blockquote {
-  margin-left: 1.5em; /* Add space to the left of blockquotes */
-  padding-left: 1em; /* Add padding to the left of blockquotes */
-  border-left: 4px solid #ccc; /* Add a left border to blockquotes */
+  margin-left: 1.5em;
+  padding-left: 1em;
+  border-left: 4px solid #ccc;
 }
+
+/* Horizontal Rule */
+.markdown-content hr {
+  border-top: 2px solid #ccc;
+}
+
+/* Headings */
+.markdown-content h1 {
+  font-size: 1.5rem; /* 36px */
+  font-weight: 600;
+}
+
+.markdown-content h2 {
+  font-size: 1.25rem; /* 30px */
+  font-weight: 600;
+}
+
 
 .hljs {
   display: block;
@@ -76,6 +109,32 @@
   color: #ccc;
 }
 
-.hljs-string{
+.hljs-string {
   color: #d1dae3;
+}
+
+/* Inline code (dark theme) */
+.markdown-content-dark code {
+  background-color: #1e1e1e; /* Dark gray */
+  color: #f8f8f2;            /* Near-white text */
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.95em;
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Code blocks (dark theme) */
+.markdown-content-dark pre {
+  background-color: #1e1e1e; /* Very dark gray */
+  color: #f8f8f2;            /* Near-white text */
+  padding: 1em;
+  border-radius: 6px;
+  overflow: auto;
+  margin: 1em 0;
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Optional: Syntax highlighting colors */
+.markdown-content-dark pre code {
+  color: #f8f8f2;
 }
